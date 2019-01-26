@@ -1,0 +1,12 @@
+{
+  "name": "linear",
+  "version": "1.0.0",
+  "description": "linear regression",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GodKiller98",
+  "license": "ISC",
+  "dependencies": {}
+}
