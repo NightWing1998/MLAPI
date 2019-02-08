@@ -1,5 +1,5 @@
-var MatrixOps 	= require("./matrix-operations"),
-	costCal		= require("./cost-calculation");
+var costCal		= require("./cost-calculation"),
+	hypothesis	= require("./hypothesis");
 
 function gradientDescent(x, y, theta, alpha) {
 
@@ -9,20 +9,25 @@ function gradientDescent(x, y, theta, alpha) {
 		m = y.length,
 		sum = 0,
 		h = [];
-
+	
+	
+	// console.log("Inside gradient descent:- \ntheta:- ",theta);
+	// console.log("Gradient descent");
+	
 	while (jHistory !== j && count < 200000) {
 
 		sum = 0;
-
-		h = MatrixOps.MatrixMulti(x, theta);
+		// console.log(MatrixOps,MatrixOps.MatrixMulti);
+		// h = MatrixOps.MatrixMulti(x, theta);
+		h = hypothesis(x, theta);
 
 		for (let a = 0; a < theta.length; a++) {
 
 			for (let b = 0; b < m; b++) {
-				sum += (h[b][0] - y[b]) * x[b][a];
+				sum += (h[b][0] - y[b])*x[b][a];
 			}
 
-			sum = alpha * sum / m;
+			sum = alpha*sum/m;
 
 			theta[a][0] = theta[a][0] - sum;
 		}
@@ -33,9 +38,9 @@ function gradientDescent(x, y, theta, alpha) {
 
 		count++;
 
-	};
+	}
 
 	return theta;
-};
+}
 
 module.exports = gradientDescent;

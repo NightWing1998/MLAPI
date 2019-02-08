@@ -2,8 +2,10 @@ var MatrixOperations = {
 
 	MatrixMulti : function (matA, matB) {
 
+		// console.log("Matrix entered");
 		if (matA[0].length !== matB.length) {
-			return new Error("DimensionError:Dimensions of matrices do not match");
+			console.log("DimensionError:Dimensions of matrices do not match");
+			throw new Error("DimensionError:Dimensions of matrices do not match");
 		}
 		var result = [], sum = 0;
 		for (let a = 0; a < matA.length; a++) {
@@ -24,6 +26,6 @@ var MatrixOperations = {
 
 	}
 
-}
+};
 
 module.exports = MatrixOperations;
