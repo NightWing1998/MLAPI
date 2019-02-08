@@ -23,7 +23,7 @@ module.exports = function(path,learningRate,callback){
 			for(let b = 0;b < data[a].length - 1 ;b++){
 				x[a][b+1] = parseFloat(data[a][b]);
 			}
-			console.log(x[a]);
+			// console.log(x[a]);
 			y[a] = parseFloat(data[a][data[a].length-1]);
 	
 		}
@@ -39,7 +39,7 @@ module.exports = function(path,learningRate,callback){
 		// console.log("Theta:- ",theta);
 	
 		theta = gradientDescent(x, y, theta, alpha);
-		console.log("Optimal value of theta for current input:- ",theta);
+		// console.log("Optimal value of theta for current input:- ",theta);
 		
 		callback(theta);
 	

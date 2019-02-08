@@ -7,10 +7,10 @@ function costCal(x, y, theta) {
 		h = hypothesis(x, theta);
 
 	for (let j = 0; j < m; j++) {
-		J += Math.pow( (h[j][0] - y[j]),2 );
+		J += ( -y[j]*Math.log( h[j][0] ) - ( 1-y[j] )*Math.log( 1 - h[j][0] ) );
 	}
 
-	J = J/(2 * m);
+	J = J/m;
 
 	return J;
 
