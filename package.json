@@ -1,12 +1,12 @@
 {
-  "name": "linear",
+  "name": "MLAPI",
   "version": "1.0.0",
-  "description": "linear regression",
+  "description": "An API for you to use",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "GodKiller98",
+  "author": "NightWing1998",
   "license": "ISC",
   "dependencies": {}
 }
