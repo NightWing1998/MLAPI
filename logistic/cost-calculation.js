@@ -7,7 +7,7 @@ function costCal(x, y, theta) {
 		h = hypothesis(x, theta);
 
 	for (let j = 0; j < m; j++) {
-		J += ( -y[j]*Math.log( h[j][0] ) - ( 1-y[j] )*Math.log( 1 - h[j][0] ) );
+		J += -( y[j]*Math.log( h[j][0] ) + ( 1-y[j] )*Math.log( 1 - h[j][0] ) );
 	}
 
 	J = J/m;

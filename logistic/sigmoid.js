@@ -6,7 +6,7 @@ module.exports = function(matrix){
     for(let i = 0;i<matrix.length;i++){
         sigValue[i] = []; 
         for(let j = 0;j<matrix[0].length;j++){
-            sigValue[i][j] = 1/(1+Math.exp(matrix[i][j]) );
+            sigValue[i][j] = 1/(1+Math.exp(-matrix[i][j]) );
         }
     }
     

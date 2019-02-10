@@ -14,11 +14,10 @@ function gradientDescent(x, y, theta, alpha) {
 	// console.log("Inside gradient descent:- \ntheta:- ",theta);
 	// console.log("Gradient descent");
 	
-	while (jHistory !== j && count < 60) {
+	while (jHistory !== j && count < 200000) {
 
 		sum = 0;
-		// console.log(MatrixOps,MatrixOps.MatrixMulti);
-		// h = MatrixOps.MatrixMulti(x, theta);
+		
 		h = hypothesis(x, theta);
 
 		// console.log(h);

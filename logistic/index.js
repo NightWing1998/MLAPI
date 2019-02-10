@@ -2,8 +2,9 @@ var fs 				= require('fs'),
 	gradientDescent = require('./gradient-descent');
 	// costCalculation = require('./cost-calculation');
 
-module.exports = function(path,learningRate,callback){
+module.exports = function(path,learningRate){
 	// console.log(path);
+	// fs.readFile('data.txt',function (err,data) {
 	fs.readFile(path,function (err,data) {
 		console.log("Reading input from ",path);
 		if(err) throw err;	
@@ -28,17 +29,19 @@ module.exports = function(path,learningRate,callback){
 	
 		}
 		
-		// console.log("logistic ",x[x.length-1],y[y.length-1],x.length,x[0].length,y.length );
+		console.log("logistic ",x[x.length-1],y[y.length-1],x.length,x[0].length,y.length );
 		
 		var theta = [];
 		for(let a = 0;a<x[a].length ;a++){
 			theta[a] = [];
-			theta[a][0] = Math.random();
+			theta[a][0] = 0;
+			// theta[a][0] = Math.random();
 		}
 		
 		// console.log("Theta:- ",theta);
 	
 		theta = gradientDescent(x, y, theta, learningRate);
+		// theta = gradientDescent(x, y, theta, 0.009);
 		// console.log( costCalculation(x,y,[[0],[0],[0]]) );
 		console.log("Optimal value of theta for current input:- ",theta);
 		
