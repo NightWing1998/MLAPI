@@ -20,7 +20,7 @@ function gradientDescent(x, y, theta, alpha) {
 		
 		h = hypothesis(x, theta);
 
-		// console.log(h);
+		// console.log("jHistory: ",jHistory," j: ",j,count);	//comment out for deployment
 
 		for (let a = 0; a < theta.length; a++) {
 
@@ -36,11 +36,14 @@ function gradientDescent(x, y, theta, alpha) {
 		jHistory = j;
 
 		j = costCal(x, y, theta);
+		if( j.toString() == "NaN" ){
+			throw new Error("j is not a number\nh: " + h + " count = " + count + " j: " + j + "\n");
+		}
 
 		count++;
 
 	}
-	console.log("count:- ",count,"j:- ",j);
+	// console.log("count:- ",count,"j:- ",j);
 	return theta;
 }
 

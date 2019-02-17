@@ -2,12 +2,21 @@ var hypothesis = require("./hypothesis");
 
 function costCal(x, y, theta) {
 	var m = y.length,
-		J = 0,
-		// h = MatrixOps.MatrixMulti(x, theta);
-		h = hypothesis(x, theta);
+		J = 0
+		h = hypothesis(x, theta),
+		temp = 0;
 
 	for (let j = 0; j < m; j++) {
-		J += -( y[j]*Math.log( h[j][0] ) + ( 1-y[j] )*Math.log( 1 - h[j][0] ) );
+
+		if( y[j] === 1 ){
+			temp = -Math.log( h[j][0] );
+		}else{
+			temp = -Math.log( 1 - h[j][0] );
+		}
+		if(temp.toString() == "NaN"){
+			throw new Error("cost cal J is not a number\ntemp: "+temp+" h: "+h+" x: " + x[j] + " y : " + y[j] + "j : " + j + "\n");
+		}
+		J += temp;
 	}
 
 	J = J/m;
