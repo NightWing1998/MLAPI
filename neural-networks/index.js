@@ -42,10 +42,9 @@ module.exports = function(path,learningRate){		//comment this out for testing
 		
 		// console.log("Theta:- ",theta);
 	
-		theta = gradientDescent(x, y, theta, learningRate);			//comment this out for testing
-		// theta = gradientDescent(x, y, theta, 0.005);					//comment this out for deployment
-		// console.log( costCalculation(x,y,[[0],[0],[0]]) );
-		// console.log("Optimal value of theta for current input:- ",theta);
+		// theta = backpropogation(x, y, theta, learningRate);			//comment this out for testing
+		// theta = backpropogation(x,y,theta,0.05)						//comment this out for deployment
+		console.log("Optimal value of theta for current input:- ",theta);
 		
 		callback(theta);		//comment this out for testing
 	
