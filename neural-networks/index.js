@@ -1,11 +1,12 @@
-var fs 				= require('fs'),
-	gradientDescent = require('./gradient-descent');
+var fs 				= require('fs')
+	// gradientDescent = require('./gradient-descent');
 	// costCalculation = require('./cost-calculation');
 
-module.exports = function(path,learningRate){		//comment this out for testing
+module.exports = function(path,hidden_layers,no_of_nodes,learningRate){		//comment this out for testing
 	// console.log(path);
-	// fs.readFile('data.txt',function (err,data) {		//comment for deployment
-	fs.readFile(path,function (err,data) {			//comment this out for testing
+	var hl = hidden_layers,nodes=no_of_nodes;
+	fs.readFile('data.txt',function (err,data) {		//comment for deployment
+	// fs.readFile(path,function (err,data) {			//comment this out for testing
 		// console.log("Reading input from ",path);		//comment this out for testing
 		if(err) throw err;	
 		// console.log(data.toString());	
@@ -29,7 +30,7 @@ module.exports = function(path,learningRate){		//comment this out for testing
 	
 		}
 		
-		// console.log("logistic ",x[x.length-1],y[y.length-1],x.length,x[0].length,y.length );	//comment for deployemnt
+		// console.log("neural ",x[x.length-1],y[y.length-1],x.length,x[0].length,y.length );	//comment for deployemnt
 		
 		var theta = [];
 		for(let a = 0;a<x[a].length ;a++){
@@ -38,7 +39,7 @@ module.exports = function(path,learningRate){		//comment this out for testing
 			theta[a][0] = Math.random()/100;
 		}
 
-		// console.log("logistic ",x,y,theta );	//comment for deployemnt
+		console.log("neural ",x,y,theta );	//comment for deployemnt
 		
 		// console.log("Theta:- ",theta);
 	
