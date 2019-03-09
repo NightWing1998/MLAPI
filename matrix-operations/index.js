@@ -4,8 +4,8 @@ var MatrixOperations = {
 
 		// console.log("Matrix entered");
 		if (matA[0].length !== matB.length) {
-			console.log("DimensionError:Dimensions of matrices do not match");
-			throw new Error("DimensionError:Dimensions of matrices do not match");
+			// console.log("DimensionError:Dimensions of matrices do not match");
+			throw new Error("DimensionError:Dimensions of matrices do not match " + matA[0].length + matB.length);
 		}
 		var result = [], sum = 0;
 		for (let a = 0; a < matA.length; a++) {
