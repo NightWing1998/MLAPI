@@ -32,12 +32,24 @@ module.exports = function(path,hidden_layers,no_of_nodes,learningRate){		//comme
 		
 		// console.log("neural ",x[x.length-1],y[y.length-1],x.length,x[0].length,y.length );	//comment for deployemnt
 		
-		var theta = [];
-		for(let a = 0;a<x[a].length ;a++){
-			theta[a] = [];
-			// theta[a][0] = 0;
-			theta[a][0] = Math.random()/100;
+		var omega = [],b = [];
+		for(var i = 0;i<=hl;i++){
+			var limit = 0;
+			omega[i] = [];
+			b[i] = [];
+			if(i === hl){
+				// omega[hl] sould have elements of upto y.length
+				limit = y.length;
+			}else{
+				limit = nodes;
+			}
+			// limit = (i === hl)?y.length:nodes;
+			for(let j = 0;j < limit;j++){
+				omega[i][j] = [];
+				b[i][j] = [];
+			}
 		}
+		// theta[a][0] = Math.random();
 
 		console.log("neural ",x,y,theta );	//comment for deployemnt
 		
