@@ -1,35 +1,17 @@
 var MatrixOps   = require('../matrix-operations')
     // sigmoid     = require('./sigmoid');
 
-module.exports = function(xOfn,yOfnLength,hl,nodes,omega,b){
+module.exports = function(xOfn,hl,omega,b){
     var h = [];
     var a = [];
-    a = xOfn;
-    // console.log("#################",a);
-    console.log("###########",a,omega[0],a.length,a[0].length,omega[0].length,omega[0][0].length);
-    console.log("????????????",MatrixOps.MatrixMulti(omega[0],MatrixOps.Transpose(a) ) );
-    // for(var  i = 1;i < hl+1;i++){
-    //     // cal(i,nodes,a,omega,b);
-    //     // console.log(a[i]);
-    // }
-    // // cal(hl+1,yOfnLength,a,omega,b);
-    // h = a[hl+1];
-    // // console.log(">>>>>>>>>>>>>>>>>",a);
-    // return a;
+    a[0] = xOfn;
+    for(var  i = 1;i <= hl+1;i++){
+        a[i] = MatrixOps.MatrixMulti( a[i-1],MatrixOps.Transpose(omega[i-1]) ) ;
+        for(let j = 0;j<a[i].length;j++){
+            a[i][j]= MatrixOps.Add( a[i][j],b[i-1] );
+        }
+    }
+    h = a[hl+1];
+    console.log(">>>>>>>>>>>>>>>>>",a);
+    return a;
 }
-
-// function cal(i,extent,a,omega,b){
-//     console.log(MatrixOps.MatrixMulti(a,omega[i-1][0]) );
-//     a[i] = [];
-//     var z = [];
-//     for(var j = 0;j<extent;j++){
-//         // console.log(a[i-1],omega[i-1][j]);
-//         temp = MatrixOps.MatrixMulti(a,omega[i-1][j]);
-//         // console.log("<<<<<<<<<<<<",temp,"\n?????????????",b[i-1][j]);
-//         z = temp[0][0] + b[i-1][j][0];
-//         // a[i][j] = sigmoid(z);
-//         a[i][j] = z;
-//     }
-//     // a[i] = sigmoid([ a[i] ]);
-//     a[i] = [ a[i] ];
-// }

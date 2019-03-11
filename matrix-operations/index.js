@@ -35,6 +35,33 @@ var MatrixOperations = {
 			}
 		}
 		return t;
+	},
+
+	Add : function(matA,matB){
+		
+		if(matA.length !== matB.length){
+			throw new Error("DimensionError:Dimensions of matrices do not match " + matA.length + " " + matB.length);
+		}
+		var result = [];
+		if( matA[0].length !== undefined && matB[0].length !== undefined ){
+			if(matA[0].length !== matB[0].length){
+				throw new Error("DimensionError:Dimensions of matrices do not match " + matA.length + "x" + matA[0].length + " " + matB.length + "x" + matB[0].length);
+			}
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				for(let j = 0; j < matA[0].length;j++){
+					result[i][j] = matA[i][j] + matB[i][j]
+				}
+			}
+		} else if( matA[0].length === undefined && matB[0].length === undefined ){
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				result[i] = matA[i] + matB[i];
+			}
+		}else{
+			throw new Error("Dimension Error");
+		}
+		return result;
 	}
 
 };
