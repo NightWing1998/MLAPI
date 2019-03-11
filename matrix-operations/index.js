@@ -5,7 +5,7 @@ var MatrixOperations = {
 		// console.log("Matrix entered");
 		if (matA[0].length !== matB.length) {
 			// console.log("DimensionError:Dimensions of matrices do not match");
-			throw new Error("DimensionError:Dimensions of matrices do not match " + matA[0].length + matB.length);
+			throw new Error("DimensionError:Dimensions of matrices do not match " + matA.length + "x" + matA[0].length + " " + matB.length + "x" + matB[0].length);
 		}
 		var result = [], sum = 0;
 		for (let a = 0; a < matA.length; a++) {
@@ -24,6 +24,17 @@ var MatrixOperations = {
 
 		return result;
 
+	},
+
+	Transpose : function(og){
+		t = [];
+		for (let i = 0; i < og[0].length; i++) {
+			t[i] = [];
+			for(let j = 0;j < og.length;j++){
+				t[i][j] = og[j][i];
+			}
+		}
+		return t;
 	}
 
 };

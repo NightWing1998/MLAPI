@@ -58,9 +58,9 @@ module.exports = function(path,hidden_layers,no_of_nodes,learningRate){		//comme
 		}
 		// theta[a][0] = Math.random();
 
-		console.log("neural\n>>>>>>>>>\n",x,"\n<<<<<<<<<<<\n",y,"\n#############\n",JSON.stringify(omega),"\n???????????\n",b );	//comment for deployemnt
+		// console.log("neural\n>>>>>>>>>\n",x,"\n<<<<<<<<<<<\n",y,"\n#############\n",JSON.stringify(omega),"\n???????????\n",b );	//comment for deployemnt
 		
-		console.log("omega lengths: ",omega.length,omega[0].length,omega[0][0].length);
+		// console.log("omega lengths: ",omega.length,omega[0].length,omega[0][0].length);
 		// console.log("Theta:- ",theta);
 	
 		// theta = backpropogation(x, y, theta, learningRate);			//comment this out for testing
