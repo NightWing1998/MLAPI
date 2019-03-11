@@ -45,20 +45,20 @@ module.exports = function(path,hidden_layers,no_of_nodes,learningRate){		//comme
 			// limit = (i === hl)?y.length:nodes;
 			for(let j = 0;j < limit;j++){
 				omega[i][j] = [];
-				b[i][j] = [1];
+				b[i][j] = 1;
 				if( i === 0 ){
 					cur_nodes = x[0].length;
 				} else{
 					cur_nodes = nodes;
 				}
 				for(let k = 0;k < cur_nodes;k++){
-					omega[i][j][k] = [Math.random()];
+					omega[i][j][k] = Math.random();
 				}
 			}
 		}
 		// theta[a][0] = Math.random();
 
-		// console.log("neural\n>>>>>>>>>\n",x,"\n<<<<<<<<<<<\n",y,"\n#############\n",JSON.stringify(omega),"\n???????????\n",b );	//comment for deployemnt
+		// console.log("neural\n>>>>>>>>>\n",x,"\n<<<<<<<<<<<\n",y,"\n#############\n",omega,"\n???????????\n",b );	//comment for deployemnt
 		
 		// console.log("omega lengths: ",omega.length,omega[0].length,omega[0][0].length);
 		// console.log("Theta:- ",theta);
