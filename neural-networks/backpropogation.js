@@ -10,13 +10,13 @@ module.exports = function(x,y,hl,nodes,omega,b,learningRate){
 	while( jHistory !== j && j !== 0  && count < 200000 ){
 		h = hypothesis(x,hl,omega,b);
 		
-		
+
 		//TODO:- backpropogation logic here
 
 
 		jHistory = j;
 		j = cost(y,h);
-		count++;
+	count++;
 	};
 
 	return {omega,b};
