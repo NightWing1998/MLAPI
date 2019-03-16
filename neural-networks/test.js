@@ -5,4 +5,7 @@ var hypo = require("./hypothesis");
 var  h = hypo(x,2,w,b)[3];
 var cost = require("./cost-calculation");
 var y = [[24,0],[48,0]]
+function linear(x){
+	return x;
+}
 console.log("@@@@@@@@@@@@@@@@",cost(y,h));
