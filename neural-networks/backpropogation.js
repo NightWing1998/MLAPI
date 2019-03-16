@@ -12,7 +12,7 @@ module.exports = function(x,y,hl,nodes,omega,b,learningRate){
 		
 
 		//TODO:- backpropogation logic here
-		
+
 
 		jHistory = j;
 		j = cost(y,h);
