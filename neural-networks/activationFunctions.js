@@ -1,7 +1,7 @@
 module.exports = {
 
 	sigmoid : function(matrix){
-		assert(matrix.length > 0 && matrix[0].length > 0,"Dimension error. Please check the dimensions of input matrix!! " + matrix.length + " " + matrix[0].length);
+		// assert(matrix.length > 0 && matrix[0].length > 0,"Dimension error. Please check the dimensions of input matrix!! " + matrix.length + " " + matrix[0].length);
 		var sigValue = [];
 		for(let i = 0;i<matrix.length;i++){
 			sigValue[i] = []; 
@@ -24,8 +24,8 @@ module.exports = {
 		
 		return sigValue;
 	},
-	LU : function(matrix){
-		assert(matrix.length > 0 && matrix[0].length > 0,"Dimension error. Please check the dimensions of input matrix!! " + matrix.length + " " + matrix[0].length);
+	ReLU : function(matrix){
+		// assert(matrix.length > 0 && matrix[0].length > 0,"Dimension error. Please check the dimensions of input matrix!! " + matrix.length + " " + matrix[0].length);
 		var sigValue = [];
 		for(let i = 0;i<matrix.length;i++){
 			sigValue[i] = []; 
@@ -36,8 +36,8 @@ module.exports = {
 		
 		return sigValue;
 	},
-	ReLU : function(matrix){
-		assert(matrix.length > 0 && matrix[0].length > 0,"Dimension error. Please check the dimensions of input matrix!! " + matrix.length + " " + matrix[0].length);
+	LeakyReLU : function(matrix){
+		// assert(matrix.length > 0 && matrix[0].length > 0,"Dimension error. Please check the dimensions of input matrix!! " + matrix.length + " " + matrix[0].length);
 		var sigValue = [];
 		for(let i = 0;i<matrix.length;i++){
 			sigValue[i] = []; 

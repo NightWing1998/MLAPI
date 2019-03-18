@@ -88,6 +88,87 @@ var MatrixOperations = {
 			throw new Error("Dimension Error");
 		}
 		return result;
+	},
+	Sum : function(matA){
+		var sum = 0;
+		if( matA[0].length === undefined){
+			for(let i = 0;i < matA.length;i++){
+				sum+=matA[i];
+			}
+		} else{
+			for(let i = 0;i < matA.length;i++){
+				// console.log(">>>>>>>>>>>>",i,matA[i]);
+				for(let j = 0; j < matA[i].length;j++){
+					sum+=matA[i][j];
+				}
+			}
+		}
+		return sum;
+	},
+	MultiplyElementWise : function(matA,matB){
+		
+		if(matA.length !== matB.length){
+			throw new Error("DimensionError:Dimensions of matrices do not match " + matA.length + " " + matB.length);
+		}
+		var result = [];
+		if( matA[0].length !== undefined && matB[0].length !== undefined ){
+			if(matA[0].length !== matB[0].length){
+				throw new Error("DimensionError:Dimensions of matrices do not match " + matA.length + "x" + matA[0].length + " " + matB.length + "x" + matB[0].length);
+			}
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				for(let j = 0; j < matA[0].length;j++){
+					result[i][j] = matA[i][j] * matB[i][j]
+				}
+			}
+		} else if( matA[0].length === undefined && matB[0].length === undefined ){
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				result[i] = matA[i] * matB[i];
+			}
+		}else{
+			throw new Error("Dimension Error");
+		}
+		return result;
+	},
+	ScalarMultiply : function(num,matA){
+		
+		var result = [];
+		if( matA[0].length !== undefined ){
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				for(let j = 0; j < matA[0].length;j++){
+					result[i][j] = matA[i][j] * num;
+				}
+			}
+		} else if( matA[0].length === undefined ){
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				result[i] = matA[i] * num;
+			}
+		}else{
+			throw new Error("Random Error");
+		}
+		return result;
+	},ScalarAdd : function(num,matA){
+		
+		var result = [];
+		if( matA[0].length !== undefined ){
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				for(let j = 0; j < matA[0].length;j++){
+					result[i][j] = matA[i][j] + num;
+				}
+			}
+		} else if( matA[0].length === undefined ){
+			for(let i = 0;i<matA.length;i++){
+				result[i] = [];
+				result[i] = matA[i] - num;
+			}
+		}else{
+			throw new Error("Random Error");
+		}
+		return result;
 	}
 
 };
