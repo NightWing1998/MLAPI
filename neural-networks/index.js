@@ -1,5 +1,5 @@
 var fs 				= require('fs')
-	// gradientDescent = require('./gradient-descent');
+	backpropogation = require('./backpropogation');
 	// costCalculation = require('./cost-calculation');
 
 module.exports = function(path,hidden_layers,no_of_nodes,learningRate){		//comment this out for testing
@@ -62,9 +62,13 @@ module.exports = function(path,hidden_layers,no_of_nodes,learningRate){		//comme
 		
 		// console.log("omega lengths: ",omega.length,omega[0].length,omega[0][0].length);
 		// console.log("Theta:- ",theta);
-	
-		// theta = backpropogation(x, y, theta, learningRate);			//comment this out for testing
-		// theta = backpropogation(x,y,theta,0.05)						//comment this out for deployment
+
+		omega = backpropogation(x,y,hl,omega,b,ReLU,deReLU,learningRate);	//comment this during testing
+		omega = backpropogation(x,y,hl,omega,b,ReLU,deReLU,0.05);	//comment this during testing
+
+		b = omega.b;
+		omega = omega.omega;
+
 		// console.log("Optimal value of theta for current input:- ",omega,b);
 		
 		// callback(omega,b);		//comment this out for testing
